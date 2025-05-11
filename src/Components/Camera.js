@@ -12,8 +12,8 @@ export function Camera()
         width / 2, // Right
         height / 2, // Top
         height / -2, // Bottom
-        100, near,
-        900
+        100, //near
+        900 // far
     );
 
     camera.up.set(0, 0 ,1);

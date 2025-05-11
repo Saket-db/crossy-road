@@ -2,10 +2,13 @@ import './style.css'
 import * as THREE from 'three';
 import {Renderer} from './Components/Renderer';
 import {Camera} from './Components/Camera';
-import {Player} from './Components/Player';
+import {player} from './Components/Player';
+import { initializeMap, map } from './Components/Map';
+
 
 const scene = new THREE.Scene();
 scene.add(player);
+scene.add(map);
 
 const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
@@ -18,6 +21,13 @@ scene.add(dirLight);
 
 const camera = Camera();
 scene.add(camera);
+
+intializeGame();
+
+function intializeGame(){
+    initializeMap();
+}
+
 
 const renderer = Renderer();
 renderer.render(scene, camera);

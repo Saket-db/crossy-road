@@ -12,6 +12,6 @@ function Player()
                 flatShading: true,
             })
         );
-        body.position.z = 10;
+        body.position.z = 13;
         return body;
     }
