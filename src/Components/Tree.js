@@ -17,7 +17,7 @@ export function Tree(tileIndex, height)
     tree.add(trunk);
 
     const crown = new THREE.Mesh(
-        new THREE.BoxGeometry(30,35,height),
+        new THREE.BoxGeometry(30,35,height),// Trunk base and crown top
         new THREE.MeshLambertMaterial({
             color: 0x7aa21d,
             flatShading: true,
