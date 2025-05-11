@@ -12,6 +12,7 @@ export function Road(rowIndex)
         new THREE.MeshLambertMaterial({color : 0x454a59 })
     );
     foundation.position.z = 1.5;
+    foundation.receiveShadow = true;
 
     road.add(foundation);
     return road;

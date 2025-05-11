@@ -4,6 +4,8 @@ import {Renderer} from './Components/Renderer';
 import {Camera} from './Components/Camera';
 import {player} from './Components/Player';
 import { initializeMap, map } from './Components/Map';
+import { DirectionLight } from './Components/DirectionLight';
+import {animateVehicles} from "./animateVehicles"
 
 
 const scene = new THREE.Scene();
@@ -13,11 +15,14 @@ scene.add(map);
 const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
-const dirLight = new THREE.DirectionalLight();
-dirLight.position.set(-100, -100, 200);
-scene.add(dirLight);
+// const dirLight = new THREE.DirectionalLight();
+// dirLight.position.set(-100, -100, 200);
+// scene.add(dirLight);
 // adding ambient light(to make the entire canvas bright)
 // adding direction light( to make darkeer the edges, where light is not being received)
+
+const dirLight = DirectionLight();
+scene.add(dirLight);
 
 const camera = Camera();
 scene.add(camera);
@@ -30,4 +35,9 @@ function intializeGame(){
 
 
 const renderer = Renderer();
-renderer.render(scene, camera);
+renderer.setAnimationLoop(animate);
+function animate()
+{
+    animateVehicles();
+    renderer.render(scene, camera);
+}

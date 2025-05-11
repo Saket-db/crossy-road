@@ -3,37 +3,50 @@ import { Grass } from "./Grass";
 import { Tree } from "./Tree";
 import { Car } from "./Car";
 import { Road } from "./Road"; 
+import { Truck } from "./Truck";
 
 export const metadata = [
-    {
-        type: "car",               // This is a road with cars
-        direction: false,
-        speed: 1,
-        vehicles: [
-            {
-                initialTileIndex: 2,
-                color: 0xff0000     // Red car
-            }
-        ],
-    },
-    // ✅ You can add more rows here (e.g., forest or more car lanes)
-    // {
-    //     type: "forest",
-    //     trees: [
-    //         { tileIndex: -3, height: 50 },
-    //         { tileIndex: 2, height: 30 },
-    //         { tileIndex: 5, height: 50 },
-    //     ],
-    // }
+  {
+    type: "truck",
+    direction: true,
+    speed: 0,
+    vehicles: [
+      {
+        initialTileIndex: -4,
+        color: 0x000ff0
+      }
+    ]
+  },
+  {
+    type: "forest",
+    trees: [
+      { tileIndex: -3, height: 40 },
+      { tileIndex: 1, height: 60 },
+      { tileIndex: 4, height: 50 }
+    ]
+  },
+  {
+    type: "car",
+    direction: false,
+    speed: 1,
+    vehicles: [
+      {
+        initialTileIndex: 2,
+        color: 0xff0000
+      }
+    ]
+  }
 ];
+
 
 export const map = new THREE.Group();
 
 export function initializeMap() {
-    const grass = Grass(0);    // Base grass row at index 0
-    map.add(grass);
+    // Add a single base grass row (player usually stands here)
+    const baseGrass = Grass(0);
+    map.add(baseGrass);
 
-    addRow();                  // Add more rows using metadata
+    addRow();  // Add all metadata rows starting from row 1
 }
 
 export function addRow() {
@@ -49,7 +62,6 @@ export function addRow() {
             map.add(row);
         }
 
-        // Car (road) row
         if (rowData.type === "car") {
             const row = Road(rowIndex);
             rowData.vehicles.forEach((vehicle) => {
@@ -58,7 +70,22 @@ export function addRow() {
                     rowData.direction,
                     vehicle.color
                 );
+                vehicle.ref = car
                 row.add(car);
+            });
+            map.add(row);
+        }
+
+        if (rowData.type === "truck") {
+            const row = Road(rowIndex);
+            rowData.vehicles.forEach((vehicle) => {
+                const truck = Truck(
+                    vehicle.initialTileIndex,
+                    rowData.direction,
+                    vehicle.color
+                );
+                vehicle.ref = truck;
+                row.add(truck);
             });
             map.add(row);
         }

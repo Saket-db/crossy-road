@@ -13,5 +13,8 @@ function Player()
             })
         );
         body.position.z = 13;
+        body.castShadow = true;
+        body.receiveShadow = true;
+
         return body;
     }

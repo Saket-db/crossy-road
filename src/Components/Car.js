@@ -14,6 +14,8 @@ export function Car(initialTileIndex, direction, color)
     new THREE.MeshBasicMaterial({color, flatShading: true}));
 
     main.position.z = 12;
+    main.receiveShadow = true;
+    main.castShadow = true;
     car.add(main);
 
     const cabin = new THREE.Mesh(
@@ -25,6 +27,8 @@ export function Car(initialTileIndex, direction, color)
     );
 
     cabin.position.x = -6;
+    cabin.castShadow = true;
+    cabin.receiveShadow = true;
     cabin.position.z = 25.5;
     car.add(cabin);
 
