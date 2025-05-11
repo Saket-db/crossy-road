@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import {Grass} from "./Grass";
+import {Tree} from "./Tree";
 
 export const metadata = [
     {
@@ -19,4 +20,23 @@ export function initializeMap()
 {
     const grass = Grass(0);
     map.add(grass);
+    addRow();
+}
+
+export function addRow()
+{
+    metadata.forEach((rowData, index) => {
+        const rowIndex = index + 1;
+
+        if(rowData.type === "forest")
+        {
+            const row = Grass(rowIndex);
+            rowData.trees.forEach(({ tileIndex, height}) => {
+                const three = Tree(tileIndex, height);
+                row.add(three);
+                
+            });
+            map.add(row);
+        }
+    });
 }
