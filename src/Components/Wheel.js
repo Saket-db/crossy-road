@@ -4,7 +4,7 @@ export function Wheel(x)
 {
     const wheel = new THREE.Mesh(
         new THREE.BoxGeometry(12, 32, 12),
-        new THREE.MeshBasicMaterial({color: 0x333333, flatShading: true,
+        new THREE.MeshLambertMaterial({color: 0x333333, flatShading: true,
         })
 
     );

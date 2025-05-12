@@ -11,7 +11,7 @@ export function Bus(initialTileIndex, direction, color)
     if(!direction) bus.rotation.z = Math.PI;
 
     const main = new THREE.Mesh(new THREE.BoxGeometry(60, 30, 45), 
-    new THREE.MeshBasicMaterial({color, flatShading: true}));
+    new THREE.MeshLambertMaterial({color, flatShading: true}));
 
     main.position.z = 7;
     main.receiveShadow = true;
