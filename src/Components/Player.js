@@ -15,8 +15,28 @@ function Player()
         body.position.z = 13;
         body.castShadow = true;
         body.receiveShadow = true;
-
         return body;
     }
-
+    
     // Collect User Input movements and put them in a queue and execute the commands 1 by 1.
+export const postion = {
+        currentRow : 0,
+        currentTile : 0,
+    };
+
+    export const moveQueue = [];
+
+    export function queueMove(direction)
+    {
+        moveQueue.push(direction);
+    }
+
+    export function steps()
+    {
+        const direction = moveQueue.shift();
+
+        if(direction === "forward" || direction === "w") postion.currentRow  +=1;
+        if(direction === "backward" || direction === "s") postion.currentRow  -=1;
+        if(direction === "left" || direction === "a") postion.currentTile  +=1;
+        if(direction === "right" || direction === "d") postion.currentRow  +=1;
+    };
