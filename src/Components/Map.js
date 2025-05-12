@@ -4,6 +4,7 @@ import { Tree } from "./Tree";
 import { Car } from "./Car";
 import { Road } from "./Road"; 
 import { Truck } from "./Truck";
+import { Bus } from "./Bus";
 
 export const metadata = [
   {
@@ -28,14 +29,26 @@ export const metadata = [
   {
     type: "car",
     direction: false,
-    speed: 1,
+    speed: 2,
     vehicles: [
       {
         initialTileIndex: 2,
-        color: 0xff0000
+        color: 0xf0f000
       }
     ]
-  }
+  },
+
+  {
+    type: "bus",
+    direction: false,
+    speed: 1,
+    vehicles: [
+      {
+        initialTileIndex: -2,
+        color: 0xFF0000
+      }
+    ]
+  },
 ];
 
 
@@ -89,5 +102,21 @@ export function addRow() {
             });
             map.add(row);
         }
+        if (rowData.type === "bus") {
+            const row = Road(rowIndex);
+            rowData.vehicles.forEach((vehicle) => {
+                const bus = Bus(
+                    vehicle.initialTileIndex,
+                    rowData.direction,
+                    vehicle.color
+                );
+                vehicle.ref = bus;
+                row.add(bus);
+            });
+            map.add(row);
+        }
+
+
+
     });
 }
