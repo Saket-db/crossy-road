@@ -11,7 +11,7 @@ export function Car(initialTileIndex, direction, color)
     if(!direction) car.rotation.z = Math.PI;
 
     const main = new THREE.Mesh(new THREE.BoxGeometry(50, 30, 15), 
-    new THREE.MeshBasicMaterial({color, flatShading: true}));
+    new THREE.MeshLambertMaterial({color, flatShading: true}));
 
     main.position.z = 12;
     main.receiveShadow = true;

@@ -18,3 +18,5 @@ function Player()
 
         return body;
     }
+
+    // Collect User Input movements and put them in a queue and execute the commands 1 by 1.

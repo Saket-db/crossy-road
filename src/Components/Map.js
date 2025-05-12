@@ -10,7 +10,7 @@ export const metadata = [
   {
     type: "truck",
     direction: true,
-    speed: 0,
+    speed: 0.8,
     vehicles: [
       {
         initialTileIndex: -4,
