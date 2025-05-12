@@ -19,7 +19,7 @@ function Player()
     }
     
     // Collect User Input movements and put them in a queue and execute the commands 1 by 1.
-export const postion = {
+export const position = {
         currentRow : 0,
         currentTile : 0,
     };
@@ -35,8 +35,8 @@ export const postion = {
     {
         const direction = moveQueue.shift();
 
-        if(direction === "forward" || direction === "w") postion.currentRow  +=1;
-        if(direction === "backward" || direction === "s") postion.currentRow  -=1;
-        if(direction === "left" || direction === "a") postion.currentTile  +=1;
-        if(direction === "right" || direction === "d") postion.currentRow  +=1;
+        if(direction === "forward" || direction === "w") position.currentRow  +=1;
+        if(direction === "backward" || direction === "s") position.currentRow  -=1;
+        if(direction === "left" || direction === "a") position.currentTile  +=1;
+        if(direction === "right" || direction === "d") position.currentRow  +=1;
     };

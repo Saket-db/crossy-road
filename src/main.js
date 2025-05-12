@@ -5,7 +5,9 @@ import {Camera} from './Components/Camera';
 import {player} from './Components/Player';
 import { initializeMap, map } from './Components/Map';
 import { DirectionLight } from './Components/DirectionLight';
-import {animateVehicles} from "./animateVehicles"
+import {animateVehicles} from "./animateVehicles";
+// import {animatePlayer} from "./animatePlayer";
+import "./collectUserInput";
 
 
 const scene = new THREE.Scene();
