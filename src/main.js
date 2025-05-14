@@ -2,7 +2,8 @@ import './style.css'
 import * as THREE from 'three';
 import {Renderer} from './Components/Renderer';
 import {Camera} from './Components/Camera';
-import {player} from './Components/Player';
+// import {player} from './Components/Player';
+import { player } from './components/Player';
 import { initializeMap, map } from './Components/Map';
 import { DirectionLight } from './Components/DirectionLight';
 import {animateVehicles} from "./animateVehicles";
@@ -29,9 +30,9 @@ scene.add(dirLight);
 const camera = Camera();
 scene.add(camera);
 
-intializeGame();
+initializeGame();
 
-function intializeGame(){
+function initializeGame(){
     initializeMap();
 }
 

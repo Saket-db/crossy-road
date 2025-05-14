@@ -37,6 +37,6 @@ export const position = {
 
         if(direction === "forward" || direction === "w") position.currentRow  +=1;
         if(direction === "backward" || direction === "s") position.currentRow  -=1;
-        if(direction === "left" || direction === "a") position.currentTile  +=1;
+        if(direction === "left" || direction === "a") position.currentTile  -=1;
         if(direction === "right" || direction === "d") position.currentRow  +=1;
     };
