@@ -9,6 +9,7 @@ import { DirectionLight } from './Components/DirectionLight';
 import {animateVehicles} from "./animateVehicles";
 // import {animatePlayer} from "./animatePlayer";
 import "./collectUserInput";
+import { animatePlayer } from './animatePlayer';
 
 
 const scene = new THREE.Scene();
@@ -42,5 +43,6 @@ renderer.setAnimationLoop(animate);
 function animate()
 {
     animateVehicles();
+    animatePlayer();
     renderer.render(scene, camera);
 }
