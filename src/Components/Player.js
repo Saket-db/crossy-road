@@ -33,8 +33,8 @@ export function queueMove(direction) {
 export function stepCompleted() {
     const direction = moveQueue.shift();
 
-    if (direction === "forward" || direction === "w") position.currentRow += 1;
-    if (direction === "backward" || direction === "s") position.currentRow -= 1;
-    if (direction === "left" || direction === "a") position.currentTile -= 1;
-    if (direction === "right" || direction === "d") position.currentTile += 1;
+    if (direction === "forward" ) position.currentRow += 1;
+    if (direction === "backward") position.currentRow -= 1;
+    if (direction === "left" ) position.currentTile -= 1;
+    if (direction === "right" ) position.currentTile += 1;
 }
