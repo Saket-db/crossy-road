@@ -4,7 +4,7 @@ import {Renderer} from './Components/Renderer';
 import {Camera} from './Components/Camera';
 // import {player} from './Components/Player';
 import { player } from './components/Player';
-import { initializeMap, map } from './Components/Map';
+import { initializeMap, map } from './components/Map';
 import { DirectionLight } from './Components/DirectionLight';
 import {animateVehicles} from "./animateVehicles";
 // import {animatePlayer} from "./animatePlayer";
@@ -29,6 +29,7 @@ const dirLight = DirectionLight();
 scene.add(dirLight);
 
 const camera = Camera();
+// player.add(camera);
 scene.add(camera);
 
 initializeGame();
