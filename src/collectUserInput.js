@@ -1,4 +1,4 @@
-import { queueMove } from "./components/Player";
+import { queueMove } from "./Components/Player";
 
 document.getElementById("forward")
 ?.addEventListener("click", () => queueMove("forward"));

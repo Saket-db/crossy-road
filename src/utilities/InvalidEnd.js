@@ -1,5 +1,5 @@
 import { minTileIndex, maxTileIndex } from "../constants";
-import { metadata as rows } from "../components/Map";
+import { metadata as rows } from "../Components/Map";
 import { calFinPos } from "./calFinPos";
 
 export function InvalidEnd(currentPosition, moves) {
