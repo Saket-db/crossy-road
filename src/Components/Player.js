@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { InvalidEnd } from "../utilities/InvalidEnd";
+import { addRow } from "./Map";
+import { metadata as row } from "./Map";
 
 
 export const player = Player();
@@ -64,5 +66,5 @@ export function stepCompleted() {
     if (direction === "left" ) position.currentTile -= 1;
     if (direction === "right" ) position.currentTile += 1;
 
-    if (position.currentRow > rows.length - 10) addRows();
+    if (position.currentRow > row.length - 10) addRow();
 }
